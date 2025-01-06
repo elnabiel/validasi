@@ -1,0 +1,43 @@
+```python
+def validasi_nama(nama):
+    if not nama.isalpha():
+        return "Nama hanya boleh berisi huruf."
+    return None
+
+def validasi_telepon(telepon):
+    if not telepon.isdigit():
+        return "Nomor telepon hanya boleh berisi angka."
+    return None
+
+def validasi_email(email):
+    if "@" not in email or "." not in email:
+        return "Email harus mengandung karakter '@' dan '.'."
+    return None
+
+def validasi_form(nama, telepon, email):
+    errors = []
+
+    error_nama = validasi_nama(nama)
+    if error_nama:
+        errors.append(error_nama)
+
+    error_telepon = validasi_telepon(telepon)
+    if error_telepon:
+        errors.append(error_telepon)
+    
+    error_email = validasi_email(email)
+    if error_email:
+        errors.append(error_email)
+    
+    if errors:
+        for error in errors:
+            print("Error:", error)
+    else:
+        print("Data pendaftaran valid.")
+
+nama = input("Masukkan nama lengkap: ")
+telepon = input("Masukkan nomor telepon: ")
+email = input("Masukkan email: ")
+
+validasi_form(nama, telepon, email)
+````
